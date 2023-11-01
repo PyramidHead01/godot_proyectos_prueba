@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://86ctd4uijgqv"]
+[gd_scene load_steps=8 format=3 uid="uid://86ctd4uijgqv"]
 
-[ext_resource type="Texture2D" uid="uid://dscwx7dserwvf" path="res://icon_player_abj.png" id="1_n7nna"]
-[ext_resource type="Texture2D" uid="uid://chksri1tcd5l0" path="res://icon_player_arr.png" id="2_iqfvs"]
-[ext_resource type="Texture2D" uid="uid://cpb0lby05joap" path="res://icon_player_idle.png" id="3_ledjy"]
-[ext_resource type="Texture2D" uid="uid://b1ql48bbbteey" path="res://icon_player_lat.png" id="4_bkhi1"]
+[ext_resource type="Script" path="res://Player.gd" id="1_3e7qt"]
+[ext_resource type="Texture2D" uid="uid://dscwx7dserwvf" path="res://icon_player_abj.png" id="2_wwe1r"]
+[ext_resource type="Texture2D" uid="uid://chksri1tcd5l0" path="res://icon_player_arr.png" id="3_vc587"]
+[ext_resource type="Texture2D" uid="uid://cpb0lby05joap" path="res://icon_player_idle.png" id="4_5f4o6"]
+[ext_resource type="Texture2D" uid="uid://b1ql48bbbteey" path="res://icon_player_lat.png" id="5_i8lc2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qro5y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_n7nna")
+"texture": ExtResource("2_wwe1r")
 }],
 "loop": true,
 "name": &"abajo",
@@ -17,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_iqfvs")
+"texture": ExtResource("3_vc587")
 }],
 "loop": true,
 "name": &"arriba",
@@ -25,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ledjy")
+"texture": ExtResource("4_5f4o6")
 }],
 "loop": true,
 "name": &"idle",
@@ -33,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_bkhi1")
+"texture": ExtResource("5_i8lc2")
 }],
 "loop": true,
 "name": &"lateral",
@@ -43,9 +44,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_whhoa"]
 radius = 15.0
 
-[node name="player" type="Area2D"]
+[node name="Player" type="Area2D"]
 position = Vector2(164, 88)
 scale = Vector2(5, 5)
+script = ExtResource("1_3e7qt")
+vel = 300
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
