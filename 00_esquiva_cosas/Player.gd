@@ -54,5 +54,8 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "lateral"
 		$AnimatedSprite2D.flip_h = mov.x > 0
 	else:
-		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play("idle")
+
 	pass
+	
+	
