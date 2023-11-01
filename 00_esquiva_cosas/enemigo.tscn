@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://do7xpb7kd5puj"]
+
+[ext_resource type="Script" path="res://enemigo.gd" id="1_0jpg1"]
+[ext_resource type="Texture2D" uid="uid://bky1yketjll8w" path="res://ques_esto_jaja.png" id="1_kg2ps"]
+[ext_resource type="Texture2D" uid="uid://b6dy6mo1a07h" path="res://ques_esto_jaja_rojo.png" id="2_ujcfh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f11kq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kg2ps")
+}],
+"loop": true,
+"name": &"azul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ujcfh")
+}],
+"loop": true,
+"name": &"rojo",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlap4"]
+
+[node name="Enemigo" type="RigidBody2D"]
+position = Vector2(290, 263)
+collision_layer = 0
+gravity_scale = 0.0
+script = ExtResource("1_0jpg1")
+vel_min = 150
+vel_max = 250
+
+[node name="AnimEnemigo" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f11kq")
+animation = &"azul"
+
+[node name="ColEnemigo" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jlap4")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]

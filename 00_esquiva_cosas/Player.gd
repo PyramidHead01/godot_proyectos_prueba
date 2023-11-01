@@ -1,9 +1,10 @@
 extends Area2D
 
-
 @export var vel = 0
 var mov = Vector2()
 var lim
+
+signal hit
 
 # ES UN VOID START LA COSA ESTA
 #func _ready():
@@ -14,9 +15,10 @@ var lim
 #	pass
 
 func _ready():
+	#Con esto el player en el frame 1 se ocultara y no se vera
+	hide()
 	#Obtenemos un array con la resolucion total de la ventana
 	lim = get_viewport_rect().size
-	pass
 	
 func _process(delta):
 	
@@ -47,15 +49,25 @@ func _process(delta):
 	#Dependiendo del vector, cargara una animacion u otra
 	if mov.y != 0:
 		if mov.y < 0:
-			$AnimatedSprite2D.animation = "arriba"
+			$AnimPlayer.animation = "arriba"
 		else: 
-			$AnimatedSprite2D.animation = "abajo"
+			$AnimPlayer.animation = "abajo"
 	elif mov.x != 0:
-		$AnimatedSprite2D.animation = "lateral"
-		$AnimatedSprite2D.flip_h = mov.x > 0
+		$AnimPlayer.animation = "lateral"
+		$AnimPlayer.flip_h = mov.x > 0
 	else:
-		$AnimatedSprite2D.play("idle")
+		$AnimPlayer.play("idle")
 
-	pass
-	
-	
+#Es una funcion integrada, seria como un on collision enter
+func _on_body_entered(body):
+	hide()
+	emit_signal("hit")
+	#Ocultamos la colision
+	$ColPlayer.disabled = true
+
+func inicio(pos):
+	position = pos
+	#Para hacer que aparezca el objeto
+	show()
+	#Ahora si o si en el inicio la colision estara activa
+	$ColPlayer.disabled = false
