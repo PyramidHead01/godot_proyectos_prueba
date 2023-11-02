@@ -4,6 +4,10 @@ extends Node
 @export var Enemigo: PackedScene
 var score
 
+func _ready():
+	$AudioFondo.stream = load("res://Temazo Tetris.wav")
+	$AudioFondo.play()
+
 func inicio():
 	score = 0
 	#Asi podemos ejecutar una funcion
@@ -18,12 +22,19 @@ func inicio():
 	
 	$Interfaz.mostrar_mensaje("Listo!")
 	$Interfaz.update_score(score)
+	
+	$AudioFondo.stream = load("res://La unica cancion buena de Darks Souls.wav")
+	$AudioFondo.play()
 
 #Esto viene de una senal mandada por Player (hit)
 func game_over():
+	$AudioFondo.stop()
 	$PuntuacionTimer.stop()
 	$EnemigoTimer.stop()
 	$Interfaz.game_over()
+	$AudioHit.play()
+	$AudioFondo.stream = load("res://Temazo Tetris.wav")
+	$AudioFondo.play()
 
 #Cuando el contador acabe, el juego
 #empezara, y por eso hace los objetos

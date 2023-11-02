@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5u4balj8iu62"
+path="res://.godot/imported/La unica cancion buena de Darks Souls.wav-cdef0ddc2ccd2dd51a04dad0f998cc3b.sample"
+
+[deps]
+
+source_file="res://La unica cancion buena de Darks Souls.wav"
+dest_files=["res://.godot/imported/La unica cancion buena de Darks Souls.wav-cdef0ddc2ccd2dd51a04dad0f998cc3b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

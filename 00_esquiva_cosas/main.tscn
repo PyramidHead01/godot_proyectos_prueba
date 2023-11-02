@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj5aepotjcyjb"]
+[gd_scene load_steps=9 format=3 uid="uid://dj5aepotjcyjb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_uxo5k"]
 [ext_resource type="PackedScene" uid="uid://86ctd4uijgqv" path="res://player.tscn" id="1_x2u46"]
 [ext_resource type="PackedScene" uid="uid://do7xpb7kd5puj" path="res://enemigo.tscn" id="2_sfwti"]
 [ext_resource type="PackedScene" uid="uid://cs12ddg1t3lhy" path="res://interfaz.tscn" id="4_xc8bu"]
+[ext_resource type="Texture2D" uid="uid://bdab1og1ux0gu" path="res://fondo 640x960 cursed.jpg" id="5_54sfd"]
+[ext_resource type="AudioStream" uid="uid://dfdbxp11jh73v" path="res://Hit.wav" id="6_i6mp4"]
+[ext_resource type="AudioStream" uid="uid://w3e7jk0x26hd" path="res://Temazo Tetris.wav" id="7_cfvto"]
 
 [sub_resource type="Curve2D" id="Curve2D_nhjqr"]
 _data = {
@@ -15,10 +18,15 @@ point_count = 5
 script = ExtResource("1_uxo5k")
 Enemigo = ExtResource("2_sfwti")
 
+[node name="Fondo" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 960.0
+texture = ExtResource("5_54sfd")
+
 [node name="Player" parent="." instance=ExtResource("1_x2u46")]
 
 [node name="EnemigoTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 
 [node name="PuntuacionTimer" type="Timer" parent="."]
 
@@ -35,6 +43,12 @@ curve = SubResource("Curve2D_nhjqr")
 [node name="EnemigoPos" type="PathFollow2D" parent="SpawnEnemigo"]
 
 [node name="Interfaz" parent="." instance=ExtResource("4_xc8bu")]
+
+[node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i6mp4")
+
+[node name="AudioFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cfvto")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="EnemigoTimer" to="." method="_on_enemigo_timer_timeout"]

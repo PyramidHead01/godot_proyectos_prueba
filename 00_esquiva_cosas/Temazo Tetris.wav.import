@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://w3e7jk0x26hd"
+path="res://.godot/imported/Temazo Tetris.wav-24c9ee3aa4b7b4d26ed8a516fe0de31a.sample"
+
+[deps]
+
+source_file="res://Temazo Tetris.wav"
+dest_files=["res://.godot/imported/Temazo Tetris.wav-24c9ee3aa4b7b4d26ed8a516fe0de31a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
