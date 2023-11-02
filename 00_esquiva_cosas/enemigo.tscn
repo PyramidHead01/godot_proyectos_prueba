@@ -27,19 +27,22 @@ animations = [{
 
 [node name="Enemigo" type="RigidBody2D"]
 position = Vector2(290, 263)
-collision_layer = 0
 gravity_scale = 0.0
+contact_monitor = true
 script = ExtResource("1_0jpg1")
 vel_min = 150
 vel_max = 250
 
 [node name="AnimEnemigo" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_f11kq")
 animation = &"azul"
 
 [node name="ColEnemigo" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_jlap4")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(3, 3)
 
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]

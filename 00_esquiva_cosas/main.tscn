@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj5aepotjcyjb"]
+[gd_scene load_steps=6 format=3 uid="uid://dj5aepotjcyjb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_uxo5k"]
 [ext_resource type="PackedScene" uid="uid://86ctd4uijgqv" path="res://player.tscn" id="1_x2u46"]
 [ext_resource type="PackedScene" uid="uid://do7xpb7kd5puj" path="res://enemigo.tscn" id="2_sfwti"]
+[ext_resource type="PackedScene" uid="uid://cs12ddg1t3lhy" path="res://interfaz.tscn" id="4_xc8bu"]
 
 [sub_resource type="Curve2D" id="Curve2D_nhjqr"]
 _data = {
@@ -22,9 +23,8 @@ wait_time = 0.5
 [node name="PuntuacionTimer" type="Timer" parent="."]
 
 [node name="InicioTimer" type="Timer" parent="."]
-wait_time = 0.001
+wait_time = 2.0
 one_shot = true
-autostart = true
 
 [node name="PlayerPos" type="Marker2D" parent="."]
 position = Vector2(320, 480)
@@ -34,7 +34,10 @@ curve = SubResource("Curve2D_nhjqr")
 
 [node name="EnemigoPos" type="PathFollow2D" parent="SpawnEnemigo"]
 
+[node name="Interfaz" parent="." instance=ExtResource("4_xc8bu")]
+
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="EnemigoTimer" to="." method="_on_enemigo_timer_timeout"]
 [connection signal="timeout" from="PuntuacionTimer" to="." method="_on_puntuacion_timer_timeout"]
 [connection signal="timeout" from="InicioTimer" to="." method="_on_inicio_timer_timeout"]
+[connection signal="iniciar_juego" from="Interfaz" to="." method="inicio"]

@@ -4,12 +4,6 @@ extends Node
 @export var Enemigo: PackedScene
 var score
 
-func _ready():
-	randomize()
-
-func _process(delta):
-	pass
-
 func inicio():
 	score = 0
 	#Asi podemos ejecutar una funcion
@@ -21,11 +15,15 @@ func inicio():
 	$Player.inicio($PlayerPos.position)
 	#Se inicia el contador
 	$InicioTimer.start()
+	
+	$Interfaz.mostrar_mensaje("Listo!")
+	$Interfaz.update_score(score)
 
 #Esto viene de una senal mandada por Player (hit)
 func game_over():
 	$PuntuacionTimer.stop()
 	$EnemigoTimer.stop()
+	$Interfaz.game_over()
 
 #Cuando el contador acabe, el juego
 #empezara, y por eso hace los objetos
@@ -37,6 +35,7 @@ func _on_inicio_timer_timeout():
 #un punto exta
 func _on_puntuacion_timer_timeout():
 	score += 1
+	$Interfaz.update_score(score)
 
 func _on_enemigo_timer_timeout():
 	#Esto quiere decir, el Path Follow
