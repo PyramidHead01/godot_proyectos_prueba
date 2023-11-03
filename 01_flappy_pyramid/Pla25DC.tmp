@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddfyq3fa6ohnt"]
+
+[ext_resource type="Texture2D" uid="uid://dt3s1lcq0r7ip" path="res://icon_player.png" id="1_0itl0"]
+[ext_resource type="Script" path="res://Player.gd" id="1_5bb23"]
+[ext_resource type="Texture2D" uid="uid://dbp7oxoufc0e2" path="res://icon_player_idle_04.png" id="2_pevc8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_763k3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0itl0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pevc8")
+}],
+"loop": true,
+"name": &"Salto",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmvuv"]
+radius = 14.0
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(162, 151)
+script = ExtResource("1_5bb23")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_763k3")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_cmvuv")

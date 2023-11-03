@@ -13,3 +13,12 @@ config_version=5
 config/name="01_flappy_pyramid"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=360
+window/size/viewport_height=640
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
