@@ -22,6 +22,9 @@ position = Vector2(128, 192)
 script = ExtResource("1_gl41l")
 metadata/_edit_group_ = true
 
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s63a6")
 

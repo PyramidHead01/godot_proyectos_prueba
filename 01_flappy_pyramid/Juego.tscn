@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2qvyrmh71khu"]
+
+[ext_resource type="Script" path="res://Juego.gd" id="1_ccjw6"]
+[ext_resource type="PackedScene" uid="uid://benkw6mtso50p" path="res://CreaTubo.tscn" id="2_lwf85"]
+[ext_resource type="PackedScene" uid="uid://ddfyq3fa6ohnt" path="res://Player.tscn" id="3_coyc1"]
+
+[node name="Juego" type="Node"]
+script = ExtResource("1_ccjw6")
+Tubo = ExtResource("2_lwf85")
+
+[node name="TimerTubo" type="Timer" parent="."]
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("3_coyc1")]
+
+[connection signal="timeout" from="TimerTubo" to="." method="_on_timer_tubo_timeout"]

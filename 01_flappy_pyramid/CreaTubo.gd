@@ -1,9 +1,11 @@
-extends Node
+extends Area2D
 
 @export var Bloque: PackedScene
+@export var vel = 100
 var i = 0
 var existe_hueco = false
 var no_instanciar = false
+var mov = Vector2(100,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +23,9 @@ func _ready():
 		else:
 			var e = Bloque.instantiate()
 			add_child(e)
-			e.position = Vector2 (0,(n*32)+16)
-			print("Instanciado bloque ", n)
+			e.position = Vector2 (376,(n*32)+16)
+			#velocity.x = vel
+			#print("Instanciado bloque ", n)
 		
+func _process(delta):
+	position -= mov*delta

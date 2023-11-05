@@ -19,3 +19,6 @@ func _physics_process(delta):
 	#velocity.x = vel
 
 	move_and_slide()
+
+
+
