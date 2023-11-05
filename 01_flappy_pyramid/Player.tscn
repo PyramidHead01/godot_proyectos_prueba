@@ -17,7 +17,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jshm4"]
 radius = 17.0294
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(128, 192)
 script = ExtResource("1_gl41l")
 metadata/_edit_group_ = true

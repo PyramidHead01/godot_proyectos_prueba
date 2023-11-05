@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://benkw6mtso50p"]
+
+[ext_resource type="Script" path="res://CreaTubo.gd" id="1_kxnb2"]
+[ext_resource type="PackedScene" uid="uid://bvirk2iidqsnu" path="res://Bloque.tscn" id="2_jvn04"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_kxnb2")
+Bloque = ExtResource("2_jvn04")

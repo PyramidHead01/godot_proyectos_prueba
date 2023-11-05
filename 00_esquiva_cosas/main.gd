@@ -57,7 +57,7 @@ func _on_enemigo_timer_timeout():
 	#Instanciamos enemigo
 	#RECUERDA, necesitas
 	#el packed scene
-	var e = Enemigo.instantiate()	
+	var e = Enemigo.instantiate()
 	
 	#Lo volvemos hijo
 	add_child(e)
