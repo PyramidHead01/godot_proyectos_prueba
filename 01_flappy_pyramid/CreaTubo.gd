@@ -3,18 +3,18 @@ extends Area2D
 @export var Bloque: PackedScene
 @export var vel = 100
 var i = 0
-var existe_hueco = false
 var no_instanciar = false
 var mov = Vector2(100,0)
+var rand
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	rand = randi_range(2,14)
+	
 	for n in 20:
-		if existe_hueco == false && n != 0 && n != 19:
-			if randi() % 2:
-				no_instanciar = true
-				existe_hueco = true
+		if rand == n:
+			no_instanciar = true
 		
 		if no_instanciar == true:
 			i += 1
