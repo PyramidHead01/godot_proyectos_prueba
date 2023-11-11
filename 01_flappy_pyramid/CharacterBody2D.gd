@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var gravity = 1000
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal hit
+
 func _physics_process(delta):
 	
 	# Add the gravity.
@@ -20,5 +22,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _on_area_2d_area_entered(area):
+	emit_signal("hit")
 
-
+func game_over():
+	print("MUELTE")

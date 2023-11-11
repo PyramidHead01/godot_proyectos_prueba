@@ -64,7 +64,6 @@ func _on_body_entered(body):
 	hide()
 	emit_signal("hit")
 	#Ocultamos la colision
-	#$ColPlayer.disabled = true
 	$ColPlayer.set_deferred("disabled", true)
 
 func inicio(pos):

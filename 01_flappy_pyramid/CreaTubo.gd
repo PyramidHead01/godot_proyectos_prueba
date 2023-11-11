@@ -6,8 +6,8 @@ var i = 0
 var no_instanciar = false
 var mov = Vector2(100,0)
 var rand
+var fin = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	rand = randi_range(2,14)
@@ -24,8 +24,14 @@ func _ready():
 			var e = Bloque.instantiate()
 			add_child(e)
 			e.position = Vector2 (376,(n*32)+16)
-			#velocity.x = vel
-			#print("Instanciado bloque ", n)
 		
 func _process(delta):
-	position -= mov*delta
+	if fin == false:
+		position -= mov*delta
+	
+func _signal_fin_tubo():
+	fin = true
+	
+#Con esto cuando salga de la ventana el objeto desaparecera
+func _on_visible_screen_exited():
+	queue_free()

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2qvyrmh71khu"]
+[gd_scene load_steps=6 format=3 uid="uid://b2qvyrmh71khu"]
 
 [ext_resource type="Script" path="res://Juego.gd" id="1_ccjw6"]
 [ext_resource type="PackedScene" uid="uid://benkw6mtso50p" path="res://CreaTubo.tscn" id="2_lwf85"]
+[ext_resource type="PackedScene" uid="uid://bvirk2iidqsnu" path="res://Bloque.tscn" id="3_4hk05"]
 [ext_resource type="PackedScene" uid="uid://ddfyq3fa6ohnt" path="res://Player.tscn" id="3_coyc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f210"]
 
 [node name="Juego" type="Node"]
 script = ExtResource("1_ccjw6")
@@ -14,4 +17,14 @@ autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_coyc1")]
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(128, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5f210")
+
+[node name="Bloque" parent="." instance=ExtResource("3_4hk05")]
+visible = false
+
 [connection signal="timeout" from="TimerTubo" to="." method="_on_timer_tubo_timeout"]
+[connection signal="hit" from="Player" to="." method="_signal_hit" flags=6]
