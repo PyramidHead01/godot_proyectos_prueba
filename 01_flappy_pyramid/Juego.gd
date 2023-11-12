@@ -2,8 +2,12 @@ extends Node
 
 @export var Tubo: PackedScene
 signal finTubo
+var score = 0
 	
 func _on_timer_tubo_timeout():
+	#Puntuacion
+	score = score + 1
+	#Tubo
 	var e = Tubo.instantiate()
 	add_child(e)
 	#Esto ultimo es para decirle que, 
@@ -24,3 +28,15 @@ func _signal_hit():
 	#los tubos
 	$TimerTubo.stop()
 	emit_signal("finTubo")
+
+func _on_ui_inicio():
+	#Interfaz
+	$UI/Score.show()
+	$UI/Titulo.hide()
+	$UI/Button.hide()
+	#Juego
+	$Player.show()
+	$TimerTubo.start()
+
+func _process(delta):
+	$UI/Score.text = str(score)

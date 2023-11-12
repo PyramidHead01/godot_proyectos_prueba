@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://csqc4wqlc3m21"]
+
+[ext_resource type="FontFile" uid="uid://cgdmia6wifq4j" path="res://TT Octosquares Trial Regular.ttf" id="1_ri0qf"]
+[ext_resource type="Script" path="res://UI.gd" id="1_yfx2s"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_yfx2s")
+
+[node name="Titulo" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -43.0
+offset_right = 156.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ri0qf")
+theme_override_font_sizes/font_size = 30
+text = "01_Flappy_Pyramid"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_right = 111.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ri0qf")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -114.0
+offset_right = 49.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ri0qf")
+theme_override_font_sizes/font_size = 0
+text = "PLAY"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
