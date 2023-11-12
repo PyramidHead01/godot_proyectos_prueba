@@ -17,13 +17,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		velocity.y = salto
 
-	#Con esto movemos lateralmente el objeto
-	#velocity.x = vel
-
 	move_and_slide()
 
 func _on_area_2d_area_entered(area):
 	emit_signal("hit")
-
-func game_over():
-	print("MUELTE")
+	print("Tocado")

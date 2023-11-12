@@ -13,6 +13,7 @@ func _ready():
 	rand = randi_range(2,14)
 	
 	for n in 20:
+		
 		if rand == n:
 			no_instanciar = true
 		
@@ -20,6 +21,7 @@ func _ready():
 			i += 1
 			if i >= 4:
 				no_instanciar = false
+				
 		else:
 			var e = Bloque.instantiate()
 			add_child(e)
@@ -31,6 +33,9 @@ func _process(delta):
 	
 func _signal_fin_tubo():
 	fin = true
+	
+func _signal_reiniciar_tubo():
+	queue_free()
 	
 #Con esto cuando salga de la ventana el objeto desaparecera
 func _on_visible_screen_exited():

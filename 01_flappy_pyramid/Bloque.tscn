@@ -27,6 +27,3 @@ sprite_frames = SubResource("SpriteFrames_203td")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_xowb4")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
