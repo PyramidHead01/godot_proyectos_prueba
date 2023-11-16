@@ -1,0 +1,221 @@
+[gd_scene load_steps=6 format=3 uid="uid://b71eke4c3uhn4"]
+
+[ext_resource type="Texture2D" uid="uid://doi08wvw8o2ig" path="res://sprites/iconos/iconoAnt.png" id="1_ekhws"]
+[ext_resource type="Texture2D" uid="uid://bkqf7v5eorq62" path="res://sprites/iconos/iconoPausa.png" id="1_hp3tm"]
+[ext_resource type="Texture2D" uid="uid://dven5kf4p4cp3" path="res://sprites/iconos/iconoSigAnt.png" id="2_ewo11"]
+[ext_resource type="FontFile" uid="uid://buhblr2sdi1dw" path="res://Fuente Texto.ttf" id="4_hlhh2"]
+[ext_resource type="Texture2D" uid="uid://c0t0sp6as4p0m" path="res://sprites/artistas/ErikSatie.jpg" id="5_vkfdj"]
+
+[node name="Main" type="CanvasLayer"]
+
+[node name="Botones" type="Node" parent="."]
+
+[node name="BotSonAnterior" type="Button" parent="Botones"]
+offset_left = 832.0
+offset_top = 64.0
+offset_right = 896.0
+offset_bottom = 128.0
+icon = ExtResource("1_ekhws")
+icon_alignment = 1
+
+[node name="BotSonSig" type="Button" parent="Botones"]
+offset_left = 960.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 128.0
+icon = ExtResource("2_ewo11")
+icon_alignment = 1
+
+[node name="BotPausePlay" type="Button" parent="Botones"]
+offset_left = 896.0
+offset_top = 152.0
+offset_right = 960.0
+offset_bottom = 216.0
+icon = ExtResource("1_hp3tm")
+icon_alignment = 1
+
+[node name="Toggles" type="Node" parent="."]
+
+[node name="ToggleLoop" type="CheckBox" parent="Toggles"]
+offset_left = 64.0
+offset_top = 424.0
+offset_right = 252.0
+offset_bottom = 503.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 50
+text = "Loop?"
+icon_alignment = 1
+
+[node name="ToggleTRest" type="CheckBox" parent="Toggles"]
+offset_left = 64.0
+offset_top = 520.0
+offset_right = 292.0
+offset_bottom = 599.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 50
+text = "T Rest?"
+icon_alignment = 1
+
+[node name="Imagen" type="Sprite2D" parent="."]
+position = Vector2(160, 160)
+texture = ExtResource("5_vkfdj")
+
+[node name="TodosTitulos" type="Label" parent="."]
+offset_left = 384.0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 27
+text = "1.Musica 1
+2.Musica 2
+3.Musica 3
+4.Musica 4"
+
+[node name="TituloActual" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 280.0
+offset_right = 320.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 23
+text = "Textotextotextotexto.uwu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tiempo" type="Node" parent="."]
+
+[node name="BarraTiempo" type="HSlider" parent="Tiempo"]
+offset_left = 40.0
+offset_top = 352.0
+offset_right = 272.0
+offset_bottom = 368.0
+
+[node name="TiempoDer" type="Label" parent="Tiempo"]
+offset_left = 240.0
+offset_top = 376.0
+offset_right = 295.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+text = "00:00"
+
+[node name="TiempoIzqu" type="Label" parent="Tiempo"]
+offset_left = 16.0
+offset_top = 376.0
+offset_right = 71.0
+offset_bottom = 402.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+text = "00:00"
+
+[node name="Volumen" type="Node" parent="."]
+
+[node name="SliderVolumen" type="HSlider" parent="Volumen"]
+offset_left = 688.0
+offset_top = 336.0
+offset_right = 920.0
+offset_bottom = 352.0
+scale = Vector2(1.75, 1.75)
+
+[node name="TiempoDer" type="Label" parent="Volumen"]
+offset_left = 1064.0
+offset_top = 360.0
+offset_right = 1119.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TiempoIzqu" type="Label" parent="Volumen"]
+offset_left = 672.0
+offset_top = 360.0
+offset_right = 727.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TituloVolumen" type="Label" parent="Volumen"]
+offset_left = 832.0
+offset_top = 280.0
+offset_right = 962.0
+offset_bottom = 326.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 30
+text = "Volumen"
+
+[node name="ValorVolumen" type="Label" parent="Volumen"]
+offset_left = 832.0
+offset_top = 360.0
+offset_right = 962.0
+offset_bottom = 406.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 30
+text = "(0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Velocidad" type="Node" parent="."]
+
+[node name="SliderVel" type="HSlider" parent="Velocidad"]
+offset_left = 688.0
+offset_top = 504.0
+offset_right = 920.0
+offset_bottom = 520.0
+scale = Vector2(1.75, 1.75)
+
+[node name="VelDer" type="Label" parent="Velocidad"]
+offset_left = 1064.0
+offset_top = 528.0
+offset_right = 1119.0
+offset_bottom = 567.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 25
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VelCentro" type="Label" parent="Velocidad"]
+offset_left = 872.0
+offset_top = 528.0
+offset_right = 927.0
+offset_bottom = 567.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 25
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VelIzqu" type="Label" parent="Velocidad"]
+offset_left = 672.0
+offset_top = 528.0
+offset_right = 727.0
+offset_bottom = 567.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TituloVel" type="Label" parent="Velocidad"]
+offset_left = 832.0
+offset_top = 448.0
+offset_right = 962.0
+offset_bottom = 494.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 30
+text = "Velocidad"
+
+[node name="ValorVel" type="Label" parent="Velocidad"]
+offset_left = 832.0
+offset_top = 576.0
+offset_right = 962.0
+offset_bottom = 622.0
+theme_override_fonts/font = ExtResource("4_hlhh2")
+theme_override_font_sizes/font_size = 30
+text = "(0)"
+horizontal_alignment = 1
+vertical_alignment = 1

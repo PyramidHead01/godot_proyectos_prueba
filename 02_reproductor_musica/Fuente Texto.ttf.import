@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://buhblr2sdi1dw"
+path="res://.godot/imported/Fuente Texto.ttf-04cd95c941eb5a689bb246198fb50e2e.fontdata"
+
+[deps]
+
+source_file="res://Fuente Texto.ttf"
+dest_files=["res://.godot/imported/Fuente Texto.ttf-04cd95c941eb5a689bb246198fb50e2e.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

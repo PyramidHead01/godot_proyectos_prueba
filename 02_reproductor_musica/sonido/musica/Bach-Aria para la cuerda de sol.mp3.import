@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd7yng3i5cl5n"
+path="res://.godot/imported/Bach-Aria para la cuerda de sol.mp3-a05d76a677f69f30e144b92d9833ef26.mp3str"
+
+[deps]
+
+source_file="res://sonido/musica/Bach-Aria para la cuerda de sol.mp3"
+dest_files=["res://.godot/imported/Bach-Aria para la cuerda de sol.mp3-a05d76a677f69f30e144b92d9833ef26.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

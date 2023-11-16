@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxqj5bo572jwp"
+path="res://.godot/imported/Peer Gynt-La manana.mp3-c1442a4eff7ffa2582aa66bdfae9e1a6.mp3str"
+
+[deps]
+
+source_file="res://sonido/musica/Peer Gynt-La manana.mp3"
+dest_files=["res://.godot/imported/Peer Gynt-La manana.mp3-c1442a4eff7ffa2582aa66bdfae9e1a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

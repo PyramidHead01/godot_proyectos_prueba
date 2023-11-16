@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxd1h7v33fut2"
+path="res://.godot/imported/Kevin MacLeod-Canon en D Mayor.mp3-9dc2b71a0b8b146a955b9c19cc51465f.mp3str"
+
+[deps]
+
+source_file="res://sonido/musica/Kevin MacLeod-Canon en D Mayor.mp3"
+dest_files=["res://.godot/imported/Kevin MacLeod-Canon en D Mayor.mp3-9dc2b71a0b8b146a955b9c19cc51465f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

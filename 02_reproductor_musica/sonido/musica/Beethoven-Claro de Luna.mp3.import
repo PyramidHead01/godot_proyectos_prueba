@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diwql6owmjbdj"
+path="res://.godot/imported/Beethoven-Claro de Luna.mp3-96879e05e025f613102eefc749967ebf.mp3str"
+
+[deps]
+
+source_file="res://sonido/musica/Beethoven-Claro de Luna.mp3"
+dest_files=["res://.godot/imported/Beethoven-Claro de Luna.mp3-96879e05e025f613102eefc749967ebf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

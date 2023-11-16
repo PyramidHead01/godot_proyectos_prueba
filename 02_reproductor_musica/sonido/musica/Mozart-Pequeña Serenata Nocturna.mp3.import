@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bis0e13pcvbxw"
+path="res://.godot/imported/Mozart-Pequeña Serenata Nocturna.mp3-d47f662473b04a820e5bd3f3f961e65d.mp3str"
+
+[deps]
+
+source_file="res://sonido/musica/Mozart-Pequeña Serenata Nocturna.mp3"
+dest_files=["res://.godot/imported/Mozart-Pequeña Serenata Nocturna.mp3-d47f662473b04a820e5bd3f3f961e65d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
