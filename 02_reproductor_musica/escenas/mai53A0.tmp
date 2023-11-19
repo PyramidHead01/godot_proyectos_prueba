@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dven5kf4p4cp3" path="res://sprites/iconos/iconoSigAnt.png" id="2_ewo11"]
 [ext_resource type="FontFile" uid="uid://buhblr2sdi1dw" path="res://Fuente Texto.ttf" id="4_hlhh2"]
 [ext_resource type="Texture2D" uid="uid://c0t0sp6as4p0m" path="res://sprites/artistas/ErikSatie.jpg" id="5_vkfdj"]
-[ext_resource type="Script" path="res://gd/TodosTitulos.gd" id="6_1kl2e"]
+[ext_resource type="Script" path="res://gd/TodosTitulos.gd" id="6_a14g6"]
 
 [node name="Main" type="CanvasLayer"]
 
@@ -72,7 +72,7 @@ text = "1.Musica 1
 2.Musica 2
 3.Musica 3
 4.Musica 4"
-script = ExtResource("6_1kl2e")
+script = ExtResource("6_a14g6")
 
 [node name="TituloActual" type="Label" parent="."]
 offset_left = 16.0
