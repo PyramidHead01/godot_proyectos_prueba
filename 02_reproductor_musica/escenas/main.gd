@@ -1,19 +1,26 @@
 extends CanvasLayer
 
+var ruta = "res://sonido/musica/"
 var indexCancion = 0
 var canciones = []
+var pausado = false
+var temp = 0
+#Para cambiar el icono de los botones deben estar precargados
+var iconPause = preload("res://sprites/iconos/iconoPausa.png")
+var iconPlay = preload("res://sprites/iconos/iconoPlay.png")
 
 func _ready():
 	ObtenerValores()
 	CargarCancion(indexCancion)
 	
+func _process(delta):
+	pass
+	
 func ObtenerValores():
 	#Seteo las variables basicas que utilizo
-	var ruta = "res://sonido/musica/"
 	var dir = DirAccess.open(ruta)
 	var i = 1 
 	var texto = ""
-	
 	
 	print(dir)
 	
@@ -50,7 +57,40 @@ func CargarCancion(i = 0):
 	$Audio/Musica.stream = load(canciones[i])
 	$Audio/Musica.play()
 
+	var nombre = canciones[i].replacen(ruta,"")
+	nombre = nombre.replacen(".mp3","")
+	print(nombre)
+	$TituloActual.text = (str(i) + "." + nombre)
+
 #Pulsado Boton Pausa Play
 func _on_bot_pause_play_pressed():
-	if $Audio/Musica.get_strem_paused():
-		pass
+	if pausado:
+		$Audio/Musica.play(temp)
+		$Botones/BotPausePlay.icon = iconPause
+		pausado = false
+	else:
+		temp = $Audio/Musica.get_playback_position()
+		print("Pausado la musica en: " + str(temp))
+		$Audio/Musica.stop()
+		$Botones/BotPausePlay.icon = iconPlay
+		pausado = true
+
+#Pulsado Boton Siguiente Cancion
+func _on_bot_son_sig_pressed():
+	
+	indexCancion += 1
+	
+	if(indexCancion > canciones.size()-1):
+		indexCancion = 0
+	
+	CargarCancion(indexCancion)
+	
+#Pulsado Boton Anterior Cancion
+func _on_bot_son_anterior_pressed():
+	
+	indexCancion -= 1
+	
+	if(indexCancion < 0):
+		indexCancion = canciones.size()-1
+	
+	CargarCancion(indexCancion)
