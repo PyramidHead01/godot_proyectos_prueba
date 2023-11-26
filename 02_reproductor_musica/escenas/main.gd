@@ -11,17 +11,18 @@ var duracion = 0
 var iconPause = preload("res://sprites/iconos/iconoPausa.png")
 var iconPlay = preload("res://sprites/iconos/iconoPlay.png")
 
+var sonMusica = AudioServer.get_bus_index("Musica")
+
 func _ready():
 	ObtenerValores()
 	CargarCancion(indexCancion)
-	
-func _process(delta):
-		#Con esto damos el valor actual al slider
 
-		temp = $Audio/Musica.get_playback_position()
-		$Tiempo/BarraTiempo.value = temp
-		$Tiempo/TiempoIzqu.text = str(temp).pad_decimals(2)
-	
+func _process(delta):
+	#Con esto damos el valor actual al slider
+	temp = $Audio/Musica.get_playback_position()
+	$Tiempo/BarraTiempo.value = temp
+	$Tiempo/TiempoIzqu.text = str(temp).pad_decimals(2)
+
 func ObtenerValores():
 	#Seteo las variables basicas que utilizo
 	var dir = DirAccess.open(ruta)
@@ -76,7 +77,7 @@ func CargarCancion(i = 0):
 	print(duracion)
 	$Tiempo/BarraTiempo.max_value = duracion
 	$Tiempo/TiempoDer.text = str(duracion).pad_decimals(2)
-			
+
 #Pulsado Boton Pausa Play
 func _on_bot_pause_play_pressed():
 	if pausado:
@@ -98,7 +99,7 @@ func _on_bot_son_sig_pressed():
 		indexCancion = 0
 	
 	CargarCancion(indexCancion)
-	
+
 #Pulsado Boton Anterior Cancion
 func _on_bot_son_anterior_pressed():
 	
@@ -109,7 +110,19 @@ func _on_bot_son_anterior_pressed():
 	
 	CargarCancion(indexCancion)
 
+#Slider tiempo
 func _on_barra_tiempo_value_changed(value):
 	temp = value
 	$Tiempo/BarraTiempo.value = temp
 	$Audio/Musica.play(temp)
+
+#Slider volumen
+func _on_slider_volumen_value_changed(value):
+	#$Audio/Musica.volume_db = value
+	$Volumen/ValorVolumen.text = "[" + str(value) + "]"
+	AudioServer.set_bus_volume_db(sonMusica,linear_to_db(value))
+
+#Slider velocidad
+func _on_slider_vel_value_changed(value):
+	$Audio/Musica.pitch_scale = value
+	$Velocidad/VelCentro.text = "[" + str(value) + "]"
