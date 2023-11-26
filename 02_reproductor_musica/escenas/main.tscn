@@ -232,3 +232,4 @@ autoplay = true
 [connection signal="pressed" from="Botones/BotSonAnterior" to="." method="_on_bot_son_anterior_pressed"]
 [connection signal="pressed" from="Botones/BotSonSig" to="." method="_on_bot_son_sig_pressed"]
 [connection signal="pressed" from="Botones/BotPausePlay" to="." method="_on_bot_pause_play_pressed"]
+[connection signal="value_changed" from="Tiempo/BarraTiempo" to="." method="_on_barra_tiempo_value_changed"]

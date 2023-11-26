@@ -5,6 +5,8 @@ var indexCancion = 0
 var canciones = []
 var pausado = false
 var temp = 0
+var nombre
+var duracion = 0
 #Para cambiar el icono de los botones deben estar precargados
 var iconPause = preload("res://sprites/iconos/iconoPausa.png")
 var iconPlay = preload("res://sprites/iconos/iconoPlay.png")
@@ -14,7 +16,11 @@ func _ready():
 	CargarCancion(indexCancion)
 	
 func _process(delta):
-	pass
+		#Con esto damos el valor actual al slider
+
+		temp = $Audio/Musica.get_playback_position()
+		$Tiempo/BarraTiempo.value = temp
+		$Tiempo/TiempoIzqu.text = str(temp).pad_decimals(2)
 	
 func ObtenerValores():
 	#Seteo las variables basicas que utilizo
@@ -54,14 +60,23 @@ func ObtenerValores():
 		print("An error occurred when trying to access the path.")
 
 func CargarCancion(i = 0):
+	
+	#Anadir cancion en si
 	$Audio/Musica.stream = load(canciones[i])
 	$Audio/Musica.play()
-
-	var nombre = canciones[i].replacen(ruta,"")
+	
+	#Escribir texto
+	nombre = canciones[i].replacen(ruta,"")
 	nombre = nombre.replacen(".mp3","")
 	print(nombre)
 	$TituloActual.text = (str(i) + "." + nombre)
 
+	#Slider Tiempo
+	duracion = $Audio/Musica.stream.get_length()
+	print(duracion)
+	$Tiempo/BarraTiempo.max_value = duracion
+	$Tiempo/TiempoDer.text = str(duracion).pad_decimals(2)
+			
 #Pulsado Boton Pausa Play
 func _on_bot_pause_play_pressed():
 	if pausado:
@@ -69,7 +84,6 @@ func _on_bot_pause_play_pressed():
 		$Botones/BotPausePlay.icon = iconPause
 		pausado = false
 	else:
-		temp = $Audio/Musica.get_playback_position()
 		print("Pausado la musica en: " + str(temp))
 		$Audio/Musica.stop()
 		$Botones/BotPausePlay.icon = iconPlay
@@ -94,3 +108,8 @@ func _on_bot_son_anterior_pressed():
 		indexCancion = canciones.size()-1
 	
 	CargarCancion(indexCancion)
+
+func _on_barra_tiempo_value_changed(value):
+	temp = value
+	$Tiempo/BarraTiempo.value = temp
+	$Audio/Musica.play(temp)
