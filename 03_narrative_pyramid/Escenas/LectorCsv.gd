@@ -1,24 +1,16 @@
 extends Node
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var groupname=""
-	#var file = File.new()
-	#file.open("res://CSV/dialgos.csv", file.READ)
-	
-	var file = FileAccess.open("res://CSV/dialgos.csv", FileAccess.READ)
-	print("ASDASDQW")
-	while !file.eof_reached():
-		var csv = file.get_csv_line ()
-		print(csv)
-		if csv.size()>=7:
-			
-			if csv[2] != groupname:
-				groupname=csv[2]
-	file.close()
-
+	leerCSV("res://CSV/dialgos.csv",2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func leerCSV(ruta,idioma):
+	var file = FileAccess.open(ruta, FileAccess.READ)
+	var linea
+	while !file.eof_reached():
+		linea=file.get_csv_line("\t")
+		prints(linea[idioma])
