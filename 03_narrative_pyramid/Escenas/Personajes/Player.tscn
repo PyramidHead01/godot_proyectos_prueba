@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt2wjq2f5lwr1"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_str4h"]
+[ext_resource type="Texture2D" uid="uid://b4rfrerfr28ri" path="res://Sprites/icon_player.png" id="1_yyoxh"]
+[ext_resource type="Texture2D" uid="uid://byoaqcgfp5rlu" path="res://Sprites/icono_accion.png" id="2_b06kn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cq181"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yyoxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu0no"]
+radius = 18.1108
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hiprq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b06kn")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+position = Vector2(297, 277)
+scale = Vector2(0.989, 1)
+script = ExtResource("1_str4h")
+vel = 150
+
+[node name="ImgPlayer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cq181")
+
+[node name="ColPlayer" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uu0no")
+
+[node name="IconoInteraccion" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -43)
+sprite_frames = SubResource("SpriteFrames_hiprq")
+animation = &"on"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

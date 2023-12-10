@@ -1,3 +1,106 @@
-[gd_scene format=3 uid="uid://c20sbs5k4rjh6"]
+[gd_scene load_steps=5 format=3 uid="uid://c20sbs5k4rjh6"]
+
+[ext_resource type="Texture2D" uid="uid://c2rka51j0p1rt" path="res://Sprites/fondo_texto.png" id="1_ru8gn"]
+[ext_resource type="Texture2D" uid="uid://c34ercgx6moj3" path="res://Sprites/cara_azul.png" id="2_1la5t"]
+[ext_resource type="Texture2D" uid="uid://1qdj8a8l7i08" path="res://Sprites/iconoPlay.png" id="3_5v7xv"]
+
+[sub_resource type="GDScript" id="GDScript_ux2tl"]
+script/source = "extends CanvasLayer
+
+var linea
+var dialogo_activo
+var i = -1
+
+func _ready():
+	$InterfazDialogo.hide()
+
+func _process(_delta):
+	if dialogo_activo && Input.is_action_just_pressed(\"ui_select\"):
+		print(\"Siguiente texto\")
+
+#Estados del UI dialogo
+func pre_dialogo(ruta,idioma):
+
+	print(\"Dentro de Pre_Dialogo\")
+
+	_leerCSV(ruta,idioma)
+
+	self.show()
+	self.Texto.text = \"\"
+	self.Nombre_Personaje.text = \"\"
+
+func dialogo():
+	print(\"Dentro de Dialogo\")    
+
+func post_dialogo():
+	print(\"Dentro de Post-Dialogo\")    
+	
+	$InterfazDialogo.hide()
+
+#Procesos extra aparte de los tres metodos de dialogo
+func _leerCSV(ruta,idioma):
+
+	var file = FileAccess.open(ruta, FileAccess.READ)
+	
+	while !file.eof_reached():
+		linea=file.get_csv_line(\"\\t\")
+		prints(linea[idioma])
+
+func _siguienteLinea():
+	i += 1
+	print(linea[i])
+"
 
 [node name="InterfazDialogo" type="CanvasLayer"]
+script = SubResource("GDScript_ux2tl")
+
+[node name="Caja_Texto" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -447.0
+offset_top = 19.0
+offset_right = -225.0
+offset_bottom = 69.0
+grow_horizontal = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(25, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ru8gn")
+
+[node name="Texto" type="Label" parent="."]
+offset_left = 228.0
+offset_top = 38.0
+offset_right = 1065.0
+offset_bottom = 242.0
+text = "Hola buenos dias en esta calida tarde me llamo juna antonio alberto garidio, tu mataste a mi padre, hijo de la gran asdoiajdoaijdoijadoijasoidjasoidjoaisjd asdijowijeo qweuhwqui kjsadn dhaskidhw;ihe hkls dkljaslkdjhalkbwlkdlkaewbdjkawddadddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+MKLFJGHE RBN.K;FUGHQRLKJNF
+"
+autowrap_mode = 1
+
+[node name="Nombre_Personaje" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 221.0
+offset_right = 176.0
+offset_bottom = 250.0
+text = "ANTONIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Imagen_Personaje" type="TextureRect" parent="."]
+offset_left = 64.0
+offset_top = 66.0
+offset_right = 114.0
+offset_bottom = 116.0
+scale = Vector2(2.88723, 2.88723)
+texture = ExtResource("2_1la5t")
+
+[node name="Fin_Texto" type="TextureRect" parent="."]
+offset_left = 1053.0
+offset_top = 223.0
+offset_right = 1103.0
+offset_bottom = 273.0
+scale = Vector2(0.597711, 0.597711)
+texture = ExtResource("3_5v7xv")

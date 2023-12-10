@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn3dxj14jtdnf"]
+[gd_scene load_steps=6 format=3 uid="uid://bn3dxj14jtdnf"]
 
-[ext_resource type="Script" path="res://Escenas/LectorCsv.gd" id="1_qhfcw"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_6jn12"]
+[ext_resource type="PackedScene" uid="uid://bt2wjq2f5lwr1" path="res://Escenas/Personajes/Player.tscn" id="2_sgnvf"]
+[ext_resource type="PackedScene" uid="uid://dht5l1dpfxk82" path="res://Escenas/Personajes/AntonElRojo.tscn" id="3_5232e"]
+[ext_resource type="PackedScene" uid="uid://c20sbs5k4rjh6" path="res://Escenas/InterfazDialogo.tscn" id="3_gv8go"]
+[ext_resource type="Script" path="res://Scripts/InterfazDialogo.gd" id="4_4jyuy"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_6jn12")
 
-[node name="LectorCsv" type="Node" parent="."]
-script = ExtResource("1_qhfcw")
+[node name="Player" parent="." instance=ExtResource("2_sgnvf")]
+
+[node name="InterfazDialogo" parent="." instance=ExtResource("3_gv8go")]
+script = ExtResource("4_4jyuy")
+
+[node name="Personajes" type="Node" parent="."]
+
+[node name="AntonElRojo" parent="Personajes" groups=["Dialogo"] instance=ExtResource("3_5232e")]
+position = Vector2(491, 276)

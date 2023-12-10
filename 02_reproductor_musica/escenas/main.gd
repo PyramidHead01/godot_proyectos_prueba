@@ -38,6 +38,7 @@ func ObtenerValores():
 	if dir:
 		#Preparamos la carpeta
 		dir.list_dir_begin()
+		
 		var file_name = dir.get_next()
 		#Cuando no encuentre ningun archivo, 
 		#este parara el bucle
