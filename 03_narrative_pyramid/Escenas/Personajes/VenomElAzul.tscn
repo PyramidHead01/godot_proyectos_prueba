@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5fpiu5ngm6wt"]
+
+[ext_resource type="Script" path="res://Scripts/Hablar.gd" id="1_vmdl0"]
+[ext_resource type="Texture2D" uid="uid://ds4h3pf6pv2ic" path="res://Sprites/ques_esto_jaja.png" id="2_1m11p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54geg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1m11p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axlaa"]
+radius = 17.0294
+
+[node name="VenomElAzul" type="CharacterBody2D"]
+script = ExtResource("1_vmdl0")
+ruta_csv = "res://CSV/dialgos2.csv"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_54geg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_axlaa")

@@ -49,6 +49,10 @@ func _leerCSV(ruta,idioma):
 func _siguienteLinea():
 	i += 1
 	print(linea[i])
+
+
+func _on_timer_modo_auto_timeout():
+	pass # Replace with function body.
 "
 
 [node name="InterfazDialogo" type="CanvasLayer"]
@@ -104,3 +108,8 @@ offset_right = 1103.0
 offset_bottom = 273.0
 scale = Vector2(0.597711, 0.597711)
 texture = ExtResource("3_5v7xv")
+
+[node name="Timer_Modo_Auto" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer_Modo_Auto" to="." method="_on_timer_modo_auto_timeout"]

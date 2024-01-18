@@ -14,7 +14,6 @@ var ruta_csv
 #Cogemos la ruta nodo de interfaz Dialogo
 var ui_dialogo
 
-
 func _ready():
 	#Obtenemos un array con la resolucion total de la ventana
 	lim = get_viewport_rect().size
