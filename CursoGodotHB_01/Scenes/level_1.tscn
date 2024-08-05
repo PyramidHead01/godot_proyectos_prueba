@@ -1,16 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1vi4v5dnebpn"]
+[gd_scene load_steps=6 format=3 uid="uid://c1vi4v5dnebpn"]
 
 [ext_resource type="Texture2D" uid="uid://cc6g6qmv3a4lm" path="res://Sprites/purple.png" id="1_fix8t"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_tsr8t"]
 [ext_resource type="PackedScene" uid="uid://cqoyajypgw8vx" path="res://Scenes/player.tscn" id="2_kd8mv"]
+[ext_resource type="PackedScene" uid="uid://3isv44ffg2vk" path="res://Scenes/maze.tscn" id="3_vkvng"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a485"]
+font_size = 25
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_tsr8t")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 1151.0
-offset_bottom = 648.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_fix8t")
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("2_kd8mv")]
+[node name="Maze" parent="." instance=ExtResource("3_vkvng")]
+position = Vector2(245, 235)
 
-[node name="Player2" parent="." instance=ExtResource("2_kd8mv")]
+[node name="Player" parent="." instance=ExtResource("2_kd8mv")]
+position = Vector2(438, 308)
+
+[node name="StartLabel" type="Label" parent="."]
+z_index = -1
+offset_left = 204.0
+offset_top = 162.0
+offset_right = 287.0
+offset_bottom = 202.0
+text = "START"
+label_settings = SubResource("LabelSettings_6a485")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndLabel" type="Label" parent="."]
+z_index = -1
+offset_left = 1298.0
+offset_top = 313.0
+offset_right = 1381.0
+offset_bottom = 353.0
+text = "END"
+label_settings = SubResource("LabelSettings_6a485")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
